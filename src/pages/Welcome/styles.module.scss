@@ -53,9 +53,9 @@
   border-radius: 100%;
   z-index: -1;
   background: linear-gradient(50deg, #adadff 50%, #fff6b8 40%, #ffe3bd 30%);
-  filter: blur(80px);
   animation: animateFigure 5s ease-in-out infinite;
-  will-change: transform;
+  filter: blur(80px);
+  will-change: transform filter;
   box-shadow:
     0 0 20px #6161ff,
     0 0 30px #ffa62a,

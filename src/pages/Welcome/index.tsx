@@ -25,7 +25,7 @@ export const Welcome = () => {
               where they can communicate, share knowledge, and find work.
             </motion.p>
           </motion.div>
-          <span className={styles.shape}></span>
+          {/* <span className={styles.shape}></span> */}
         </div>
 
         {/* Modals */}
