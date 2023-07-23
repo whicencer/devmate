@@ -1,16 +1,13 @@
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import styles from "./styles.module.scss";
-import { Button } from "../../shared/ui/Button";
-import { useTheme } from "@/shared/hooks/useTheme";
-import { Dispatch, FC, SetStateAction } from "react";
+import { useTheme } from "../../../../shared/hooks/useTheme";
+import { Button } from "../../../../shared/ui/Button";
+import { useTypedModalContext } from "../../hooks/useTypedModalContext";
 
-interface IProps {
-  setModalOpen: Dispatch<SetStateAction<boolean>>
-}
-
-export const HeaderStart: FC<IProps> = ({ setModalOpen }) => {
+export const HeaderStart = () => {
   const { theme, setTheme } = useTheme();
-
+  const { setRegisterModalOpen } = useTypedModalContext();
+  
   const changeTheme = () => {
     setTheme((prevTheme) => prevTheme === 'dark' ? 'light' : 'dark');
   };
@@ -19,7 +16,7 @@ export const HeaderStart: FC<IProps> = ({ setModalOpen }) => {
       <div className={styles.header}>
         <h2>DevMate</h2>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Button style={{ marginRight: 25 }} onClick={() => setModalOpen(true)}>Get started</Button>
+          <Button style={{ marginRight: 25 }} onClick={() => setRegisterModalOpen(true)}>Get started</Button>
           {
             theme === 'light'
             ? <BsFillMoonFill cursor='pointer' onClick={changeTheme} size={20} />
