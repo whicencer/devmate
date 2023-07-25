@@ -6,6 +6,7 @@ html[data-theme='light'] {
   --color-paragraph: rgb(102, 102, 102);
   --color-primary-hover: rgb(114, 109, 255);
   --color-border: #e7e6ea;
+  --hover-color: rgb(243, 243, 243);
 }
 
 html[data-theme='dark'] {
@@ -14,6 +15,7 @@ html[data-theme='dark'] {
   --color-paragraph: rgb(243, 243, 243);
   --color-primary-hover: rgb(114, 109, 255);
   --color-border: #38384b;
+  --hover-color: #24262c;
 }
 
 html {

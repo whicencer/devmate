@@ -1,9 +1,8 @@
-import { Welcome } from "./pages/Welcome";
-
 function App() {
+  // const currentPath = location.pathname;
   return (
     <>
-      <Welcome />
+      
     </>
   );
 }

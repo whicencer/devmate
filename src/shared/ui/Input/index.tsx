@@ -2,7 +2,7 @@ import {FC} from "react";
 import { IInputProps } from "./typings";
 import styles from "./styles.module.scss";
 
-export const Input: FC<IInputProps> = ({placeholder, type = "text", width, label, style, onChange, value, minLength}) => {
+export const Input: FC<IInputProps> = ({placeholder, type = "text", width, label, style, onChange, value, minLength, inputStyle}) => {
   if (value && minLength) {
     return (
       <div style={style}>
@@ -14,8 +14,8 @@ export const Input: FC<IInputProps> = ({placeholder, type = "text", width, label
 
   return (
     <div style={style}>
-      <label className={styles.label}>{label}</label>
-      <input onChange={onChange} value={value} style={{ width }} className={`input ${styles.input}`} type={type} placeholder={placeholder} />
+      { label ? <label className={styles.label}>{label}</label> : null }
+      <input onChange={onChange} value={value} style={{ ...inputStyle, width }} className={`input ${styles.input}`} type={type} placeholder={placeholder} />
     </div>
   );
 };

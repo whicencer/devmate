@@ -1,0 +1,35 @@
+.feed {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  padding: 20px;
+}
+
+.feedContent {
+  margin-top: 20px;
+}
+
+.feedInput {
+  display: flex;
+  align-items: flex-start;
+
+  button {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 945px) {
+  .feedInput {
+    flex-direction: column;
+
+    button {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .feed {
+    grid-template-columns: 1fr;
+  }
+}

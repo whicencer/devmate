@@ -21,11 +21,9 @@ export const Welcome = () => {
               <span className={styles.coloredTitle1}>DevMate</span>&nbsp;
               and <span className={styles.coloredTitle2}>grow together</span>
             </motion.h1>
-            <motion.p custom={.5} variants={textAnimation}>DevMate is a social network for programmers
-              where they can communicate, share knowledge, and find work.
-            </motion.p>
+            <motion.p custom={.5} variants={textAnimation}>DevMate is a platform where you can learn and practice programming languages,
+            get help and share experience</motion.p>
           </motion.div>
-          {/* <span className={styles.shape}></span> */}
         </div>
 
         {/* Modals */}
