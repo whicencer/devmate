@@ -4,6 +4,7 @@ import { MdOutlineRssFeed } from "react-icons/md";
 import { BiSolidBookAlt } from "react-icons/bi";
 import { AiFillCode } from "react-icons/ai";
 import ChangeTheme from "../../../shared/components/ChangeTheme";
+import { links } from "./constants/links";
 
 const Sidebar = () => {
   return (
@@ -14,18 +15,16 @@ const Sidebar = () => {
           <ChangeTheme />
         </div>
         <nav className={styles.nav}>
-          <Link to="/feed">
-            <MdOutlineRssFeed size={30} className={styles.linkIcons} />
-            <h3>Feed</h3>
-          </Link>
-          <Link to="#">
-            <BiSolidBookAlt size={30} className={styles.linkIcons} />
-            <h3>Learn</h3>
-          </Link>
-          <Link to="#">
-            <AiFillCode size={30} className={styles.linkIcons} />
-            <h3>Practice</h3>
-          </Link>
+          {
+            links.map(link => {
+              return (
+                <Link key={link.path} to={link.path}>
+                  {link.icon}
+                  <h3>{link.label}</h3>
+                </Link>
+              );
+            })
+          }
         </nav>
       </div>
     </aside>

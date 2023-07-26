@@ -21,6 +21,8 @@ html[data-theme='dark'] {
 html {
   --color-button-text: #fff;
   --color-primary: #5c57ff;
+  --primary-gradient: -webkit-linear-gradient(45deg, #4286e7, #645aff, #be54ff);
+  --secondary-gradient: -webkit-linear-gradient(45deg, #ff8f4f, #ff8409, #ffd200);
 }
 
 * {
