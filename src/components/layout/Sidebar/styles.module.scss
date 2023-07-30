@@ -5,6 +5,23 @@
   border-right: 1px solid var(--color-border);
 }
 
+.mobileMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  width: 50%;
+  height: 100%;
+
+  padding: 20px;
+
+  background-color: var(--color-bg);
+  box-shadow: 0 0 10px 0 #000;
+
+  transition: .35s;
+}
+
 .sidebarInner {
   padding: 20px 10px;
   width: 100%;
@@ -70,5 +87,7 @@
 }
 
 @media screen and (max-width: 845px) {
-  .sidebar {display: none;}
+  .sidebar {
+    display: none;
+  }
 }

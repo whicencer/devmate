@@ -17,6 +17,14 @@
   }
 }
 
+.burgerButtonIcon {
+  color: var(--color-text);
+}
+
+@media screen and (min-width: 845px) {
+  .burgerButton {display: none;}
+}
+
 @media screen and (max-width: 945px) {
   .feedInput {
     flex-direction: column;
@@ -30,6 +38,8 @@
 
 @media screen and (max-width: 845px) {
   .feed {
-    grid-template-columns: 1fr;
+    align-items: flex-start;
+    grid-template-columns: 40px 1fr;
+    column-gap: 45px;
   }
 }
