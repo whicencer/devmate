@@ -19,6 +19,7 @@ export const MobileMenu = ({ isBurgerOpen, setBurgerOpen }: IProps) => {
   return (
     <div className={styles.mobileMenu} style={styleProperties} onClick={e => e.stopPropagation()}>
       <SidebarContent />
+      <span onClick={() => setBurgerOpen(false)} style={{ fontSize: 23, fontWeight: 'bold', cursor: 'pointer' }}>X</span>
     </div>
   );
 };
