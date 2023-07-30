@@ -11,6 +11,7 @@
 .feedInput {
   display: flex;
   align-items: flex-start;
+  width: 80%;
 
   button {
     margin-left: 20px;
@@ -54,7 +55,11 @@
     width: 100%;
   }
 
-  .feedInput button {
-    margin-top: 0;
+  .feedInput {
+    width: 100%;
+
+    button {
+      margin-top: 20px;
+    }
   }
 }
