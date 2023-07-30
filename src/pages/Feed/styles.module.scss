@@ -43,3 +43,18 @@
     column-gap: 45px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .feed {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedContent {
+    width: 100%;
+  }
+
+  .feedInput button {
+    margin-top: 0;
+  }
+}
