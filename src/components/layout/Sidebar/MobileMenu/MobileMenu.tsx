@@ -1,7 +1,7 @@
 import styles from "../styles.module.scss";
 import { SidebarContent } from "../SidebarContent";
-import { useAwayClick } from "../../../../app/hooks/useAwayClick";
-import { CSSProperties } from "react";
+import { useAwayClick } from "../../../../shared/hooks/useAwayClick";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface IProps {
   isBurgerOpen: boolean;
@@ -11,15 +11,12 @@ interface IProps {
 export const MobileMenu = ({ isBurgerOpen, setBurgerOpen }: IProps) => {
   useAwayClick(() => setBurgerOpen(false));
 
-  const styleProperties: CSSProperties = {
-    visibility: isBurgerOpen ? 'visible' : 'hidden',
-    transform: isBurgerOpen ? `translateX(0)` : `translateX(-400px)`
-  }
-
   return (
-    <div className={styles.mobileMenu} style={styleProperties} onClick={e => e.stopPropagation()}>
+    <div className={`${styles.mobileMenu} ${isBurgerOpen ? styles.openMenu : styles.closedMenu}`} onClick={e => e.stopPropagation()}>
       <SidebarContent />
-      <span onClick={() => setBurgerOpen(false)} style={{ fontSize: 23, fontWeight: 'bold', cursor: 'pointer' }}>X</span>
+      <button onClick={() => setBurgerOpen(false)} className={styles.closeBtn}>
+        <AiOutlineClose size={30} />
+      </button>
     </div>
   );
 };

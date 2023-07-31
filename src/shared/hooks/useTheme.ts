@@ -1,12 +1,14 @@
-import { useState, useLayoutEffect } from "react";
+import { useLayoutEffect, useContext } from "react";
+import { ThemeContext } from "../../app/context/ThemeContext";
+import { IThemeContext } from "../../app/typings/IThemeContext";
 
 export const useTheme = () => {
-  const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-    const [theme, setTheme] = useState<'light' | 'dark'>(savedTheme || 'light');
+  const { theme, setTheme } = useContext(ThemeContext) as IThemeContext;
 
   useLayoutEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
   return {theme, setTheme};
 };

@@ -3,16 +3,17 @@ import { useTheme } from "../../hooks/useTheme";
 
 const ChangeTheme = () => {
   const { theme, setTheme } = useTheme();
+
   const changeTheme = () => {
-    setTheme((prevTheme) => prevTheme === 'dark' ? 'light' : 'dark');
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
   return (
     <div>
       {
-        theme === 'light'
-        ? <BsFillMoonFill cursor='pointer' onClick={changeTheme} size={20} />
-        : <BsSunFill cursor='pointer' onClick={changeTheme} size={20} />
+        theme === "light"
+        ? <BsFillMoonFill cursor="pointer" onClick={changeTheme} size={20} />
+        : <BsSunFill cursor="pointer" onClick={changeTheme} size={20} />
       }
     </div>
   );

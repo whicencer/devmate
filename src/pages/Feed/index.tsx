@@ -17,7 +17,7 @@ const Feed = () => {
   return (
     <div className={styles.feed}>
       { !isBurgerOpen ? <Sidebar /> : null }
-      { isBurgerOpen ? <MobileMenu isBurgerOpen={isBurgerOpen} setBurgerOpen={setBurgerOpen} /> : null}
+      <MobileMenu isBurgerOpen={isBurgerOpen} setBurgerOpen={setBurgerOpen} />
       <button onClick={openBurger} className={styles.burgerButton} style={{ outline: 'none', border: 'none', background: 'none' }}>
         <GiHamburgerMenu style={{ cursor: 'pointer' }} size={30} className={styles.burgerButtonIcon} />
       </button>
