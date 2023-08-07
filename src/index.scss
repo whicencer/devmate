@@ -6,7 +6,7 @@ html[data-theme='light'] {
   --color-paragraph: rgb(102, 102, 102);
   --color-primary-hover: rgb(114, 109, 255);
   --color-border: #e7e6ea;
-  --hover-color: rgb(243, 243, 243);
+  --hover-color: rgb(238, 238, 238);
 }
 
 html[data-theme='dark'] {
@@ -21,6 +21,7 @@ html[data-theme='dark'] {
 html {
   --color-button-text: #fff;
   --color-primary: #5c57ff;
+  --color-paragraph-darker: rgb(140, 140, 140);
   --primary-gradient: -webkit-linear-gradient(45deg, #4286e7, #645aff, #be54ff);
   --secondary-gradient: -webkit-linear-gradient(45deg, #ff8f4f, #ff8409, #ffd200);
 }
@@ -35,6 +36,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   transition: .2s;
+}
+body.openPopup {
+  overflow: hidden;
 }
 
 html, body {

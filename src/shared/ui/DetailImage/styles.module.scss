@@ -1,0 +1,27 @@
+.wrapper {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000a6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .25s;
+
+    img {
+        width: 60%;
+        margin-top: -5px;
+    }
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
