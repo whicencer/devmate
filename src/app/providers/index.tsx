@@ -1,5 +1,6 @@
-import {ReactNode} from "react";
+import {ReactNode, Suspense} from "react";
 import { RouterProvider } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import { router } from "../router";
 import ThemeProvider from "../context/ThemeContext";
 
@@ -10,10 +11,14 @@ interface Props {
 export const Providers = ({ children }: Props) => {
   return (
     <>
-      <ThemeProvider>
-        <RouterProvider router={router} />
-        {children}
-      </ThemeProvider>
+      <RecoilRoot>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ThemeProvider>
+            <RouterProvider router={router} />
+            {children}
+          </ThemeProvider>
+        </Suspense>
+      </RecoilRoot>
     </>
   );
 };

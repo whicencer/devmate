@@ -1,5 +1,10 @@
+import { IAuthor } from "./IAuthor";
+
 export interface IArticle {
-    textContent: string;
-    // mediaContent?: File; !!!
+    id: number;
+    author:       IAuthor;
+    articleText:  string;
     mediaContent?: string;
+    likes: number;
+    timestamp: Date;
 }

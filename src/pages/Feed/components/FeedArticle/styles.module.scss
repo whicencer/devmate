@@ -25,6 +25,12 @@
         cursor: pointer;
         font-size: 1.1rem;
     }
+
+    img {
+        border-radius: 100px;
+        width: 50px;
+        height: 50px;
+    }
 }
 
 .authorAdditionalInfo {
@@ -40,6 +46,9 @@
 .articleContent {
     margin-top: 20px;
 
+    p {
+        margin-left: 7px;
+    }
     img {
         width: 70%;
         border-radius: 12px;

@@ -7,28 +7,33 @@ import styles from './styles.module.scss';
 import { IArticle } from '../../../../app/typings/IArticle';
 import { DetailImage } from '../../../../shared/ui/DetailImage/DetailImage';
 
-export const FeedArticle = ({ textContent, mediaContent }: IArticle) => {
+export const FeedArticle = ({ article }: { article: IArticle }) => {
+  const { author, articleText, mediaContent, likes } = article;
   const [detailImageVisible, setDetailImageVisible] = useState(false);
 
   const imageOnClick = () => {
     document.body.classList.add('openPopup');
     setDetailImageVisible(true);
-  }
+  };
 
   return (
     <div className={styles.article}>
         <div className={styles.articleHeader}>
           <div className={styles.articleAuthor}>
-            <BiSolidUserCircle size={50} />
+            {
+              author.profilePicture
+                ? <img src={author.profilePicture} alt={author.nickname} />
+                : <BiSolidUserCircle size={50} />
+            }
             <div className={styles.authorAdditionalInfo}>
-              <h4>John Doe</h4>
+              <h4>{author.name}</h4>
               <p>13 hours ago</p>
             </div>
           </div>
           <BsThreeDots size={20} />
         </div>
         <div className={styles.articleContent}>
-          <p>{textContent}</p>
+          <p>{articleText}</p>
           {
             mediaContent
             ? <div>
@@ -41,7 +46,7 @@ export const FeedArticle = ({ textContent, mediaContent }: IArticle) => {
         <div className={styles.interaction}>
           <span>
             <FaThumbsUp />
-            <p>12k</p>
+            <p>{likes}</p>
           </span>
           <span>
             <FaCommentAlt />
