@@ -14,7 +14,7 @@ export const DetailImage = ({ imageLink, visible, close }: IProps) => {
 
 	return (
     <div onClick={handleClose} className={`${styles.wrapper} ${visible ? styles.visible : styles.hidden}`}>
-			<img src={imageLink} alt="image-detail" />
+		<img src={imageLink} alt="image-detail" />
     </div>
   );
 };
