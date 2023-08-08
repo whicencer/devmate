@@ -47,3 +47,22 @@
         cursor: pointer;
     }
 }
+
+.interaction {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    span {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        cursor: pointer;
+
+        p {
+            margin-left: 10px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+}

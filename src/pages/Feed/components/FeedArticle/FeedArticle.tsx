@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import styles from './styles.module.scss';
 import { BsThreeDots } from 'react-icons/bs';
 import { BiSolidUserCircle } from 'react-icons/bi';
+import { FaThumbsUp, FaCommentAlt } from 'react-icons/fa';
+
+import styles from './styles.module.scss';
 import { IArticle } from '../../../../app/typings/IArticle';
 import { DetailImage } from '../../../../shared/ui/DetailImage/DetailImage';
 
@@ -35,6 +37,16 @@ export const FeedArticle = ({ textContent, mediaContent }: IArticle) => {
             </div>
             : null
           }
+        </div>
+        <div className={styles.interaction}>
+          <span>
+            <FaThumbsUp />
+            <p>12k</p>
+          </span>
+          <span>
+            <FaCommentAlt />
+            <p>760</p>
+          </span>
         </div>
     </div>
   );
