@@ -12,6 +12,8 @@ export const router = createBrowserRouter([
   },
   {
     path: '/feed',
-    element: <Feed />
+    element: <Feed />,
+    errorElement: <ErrorPage />,
+    ErrorBoundary: () => <ErrorPage />
   }
 ]);

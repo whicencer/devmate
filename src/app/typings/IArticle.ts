@@ -1,8 +1,8 @@
-import { IAuthor } from "./IAuthor";
+import { IUser } from "./IAuthor";
 
 export interface IArticle {
-    id: number;
-    author:       IAuthor;
+    id: string;
+    author:       IUser;
     articleText:  string;
     mediaContent?: string;
     likes: number;

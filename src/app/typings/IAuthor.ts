@@ -1,4 +1,4 @@
-export interface IAuthor {
+export interface IUser {
     profilePicture: string;
     nickname: string;
     name: string;

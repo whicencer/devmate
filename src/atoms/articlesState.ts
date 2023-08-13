@@ -1,8 +1,8 @@
-import { atom, selector } from "recoil";
-import { IArticle } from "../app/typings/IArticle";
-import axios from "axios";
+import { atom, selector } from 'recoil';
+import { IArticle } from '../app/typings/IArticle';
+import axios from '../app/configs/axios';
 
-export const todosState = atom({
+export const articlesState = atom({
 	key: 'articles',
 	default: [] as IArticle[],
 });
@@ -10,7 +10,7 @@ export const todosState = atom({
 export const articlesQuery = selector({
   key: 'articlesQuery',
   get: async () => {
-    const response = await axios.get('http://localhost:3000/articles');
+    const response = await axios.get(`/articles`);
     return response.data;
-  },
+  }
 });

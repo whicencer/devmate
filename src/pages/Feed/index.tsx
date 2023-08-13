@@ -5,14 +5,10 @@ import { Button } from "../../shared/ui/Button";
 import Textarea from "../../shared/ui/Textarea";
 import styles from "./styles.module.scss";
 import { MobileMenu } from "../../components/layout/Sidebar/MobileMenu/MobileMenu";
-import { FeedArticle } from "./components/FeedArticle/FeedArticle";
-import { useRecoilValue } from "recoil";
-import { articlesQuery } from "../../atoms/articlesState";
-import { IArticle } from "../../app/typings/IArticle";
+import { ArticlesList } from "./components/ArticlesList/ArticlesList";
 
 const Feed = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
-  const articles = useRecoilValue<IArticle[]>(articlesQuery);
 
   const openBurger = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -32,13 +28,7 @@ const Feed = () => {
           <Button>Add post</Button>
         </div>
         <div style={{ marginTop: 20 }}>
-          {
-            articles.map(article => {
-              return (
-                <FeedArticle key={article.id} article={article} />
-              );
-            })
-          }
+          <ArticlesList />
         </div>
       </div>
     </div>
