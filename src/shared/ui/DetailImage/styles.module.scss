@@ -31,3 +31,11 @@
         translate: 0 0;
     }
 }
+
+@media screen and (max-width: 580px) {
+    .wrapper {
+        img {
+            width: 87%;
+        }
+    }
+}

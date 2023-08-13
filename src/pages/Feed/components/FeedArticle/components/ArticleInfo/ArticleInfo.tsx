@@ -1,8 +1,16 @@
 import { BiSolidUserCircle } from 'react-icons/bi';
 import { IUser } from '../../../../../../app/typings/IAuthor';
 import styles from '../../styles.module.scss';
+import { getNormalDate } from '../../../../../../helpers/getNormalDate';
 
-export const ArticleAuthor = ({ author }: { author: IUser }) => {
+interface IProps {
+	author: IUser;
+	timestamp: Date;
+}
+
+export const ArticleInfo = ({ author, timestamp }: IProps) => {
+	timestamp = new Date('2023.08.14.00:4');
+
   return (
     <div className={styles.articleAuthor}>
 			{
@@ -12,7 +20,7 @@ export const ArticleAuthor = ({ author }: { author: IUser }) => {
 			}
 			<div className={styles.authorAdditionalInfo}>
 				<h4>{author.name}</h4>
-				<p>13 hours ago</p>
+				<p>{getNormalDate(timestamp)}</p>
 			</div>
 		</div>
   );
