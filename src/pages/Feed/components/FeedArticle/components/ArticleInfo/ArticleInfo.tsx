@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const ArticleInfo = ({ author, timestamp }: IProps) => {
-	timestamp = new Date('2023.08.14.00:4');
+	timestamp = timestamp || new Date('2023.08.14.00:4');
 
   return (
     <div className={styles.articleAuthor}>

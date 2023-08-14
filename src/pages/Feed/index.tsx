@@ -6,6 +6,7 @@ import Textarea from "../../shared/ui/Textarea";
 import styles from "./styles.module.scss";
 import { MobileMenu } from "../../components/layout/Sidebar/MobileMenu/MobileMenu";
 import { ArticlesList } from "./components/ArticlesList/ArticlesList";
+import { WriteArticleForm } from "./components/WriteArticleForm/WriteArticleForm";
 
 const Feed = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
@@ -23,10 +24,7 @@ const Feed = () => {
         <GiHamburgerMenu style={{ cursor: 'pointer' }} size={30} className={styles.burgerButtonIcon} />
       </button>
       <div className={styles.feedContent}>
-        <div className={styles.feedInput}>
-          <Textarea placeholder="Tell your mates something interesting..." />
-          <Button>Add post</Button>
-        </div>
+        <WriteArticleForm />
         <div style={{ marginTop: 20 }}>
           <ArticlesList />
         </div>
