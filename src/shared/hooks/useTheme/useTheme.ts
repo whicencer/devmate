@@ -1,6 +1,6 @@
 import { useLayoutEffect, useContext } from "react";
-import { ThemeContext } from "../../app/context/ThemeContext";
-import { IThemeContext } from "../../app/typings/IThemeContext";
+import { ThemeContext } from "../../../app/context/ThemeContext";
+import { IThemeContext } from "../../../app/typings/IThemeContext";
 
 export const useTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext) as IThemeContext;

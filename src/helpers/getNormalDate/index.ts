@@ -12,6 +12,7 @@ export const getNormalDate = (timestamp: Date) => {
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 	// Days
+	if (currentDate.getMonth() > month || currentDate.getFullYear() > year) return `${date} ${months[month]} ${year}`;
 	switch (date) {
 		case (currentDate.getDate()):
 			return currentDate.getHours() - hour !== 0

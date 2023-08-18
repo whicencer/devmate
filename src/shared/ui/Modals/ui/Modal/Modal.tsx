@@ -16,7 +16,7 @@ export const Modal: FC<IModalProps> = ({ children, isOpen, setIsOpen, height, wi
   };
 
   return ReactDOM.createPortal(
-    <div className={styles.modalOverlay} onMouseDown={handleClick}>
+    <div data-testid='overlay' className={styles.modalOverlay} onMouseDown={handleClick}>
       <motion.div
         style={{ height, width }}
         initial={{scale: .8}}

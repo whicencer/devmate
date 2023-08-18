@@ -1,5 +1,5 @@
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "../../hooks/useTheme/useTheme";
 
 const ChangeTheme = () => {
   const { theme, setTheme } = useTheme();
