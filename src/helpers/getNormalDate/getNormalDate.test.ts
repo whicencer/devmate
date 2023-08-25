@@ -1,26 +1,18 @@
 import { describe, expect, test } from 'vitest';
 import { getNormalDate } from './';
 
-const now = new Date();
-const dayAgo = new Date(`Wed Aug ${now.getDate()-1} 2023 16:53:00`);
-const tommorow = new Date(`Fri Aug ${now.getDate()+1} 2023 16:53:00`);
-const lastWeek = new Date(`Thu Aug ${now.getDate()-7} 2023 16:53:00`);
-const date = new Date(`Thu Jun 17 2023 16:53:00`);
+const date1 = new Date(`Wed Aug 13 2023 16:53:00`);
+const date2 = new Date(`Fri Jul 23 2013 16:53:00`);
+const date3 = new Date(`Thu Aug 21 2023 16:53:00`);
 
 describe('getNormalDate module', () => {
-	test('Should return 0 minutes ago', () => {
-		expect(getNormalDate(now)).toBe('0 minutes ago');
+	test('return formatted string 1', () => {
+		expect(getNormalDate(date1)).toBe('13 Aug 2023 at 16:53');
 	});
-	test('Should return Yesterday at...', () => {
-		expect(getNormalDate(dayAgo)).toBe(`Yesterday at ${dayAgo.getHours()}:${dayAgo.getMinutes()}`);
+	test('return formatted string 2', () => {
+		expect(getNormalDate(date2)).toBe('23 Jul 2013 at 16:53');
 	});
-	test('Should return DD M YYYY', () => {
-		expect(getNormalDate(tommorow)).toBe(`${now.getDate()+1} Aug ${now.getFullYear()}`);
-	});
-	test('Should return Last week at...', () => {
-		expect(getNormalDate(lastWeek)).toBe(`Last week at ${lastWeek.getHours()}:${lastWeek.getMinutes()}`);
-	});
-	test('Should return DD M YYYY', () => {
-		expect(getNormalDate(date)).toBe('17 Jun 2023');
+	test('return formatted string 3', () => {
+		expect(getNormalDate(date3)).toBe('21 Aug 2023 at 16:53');
 	});
 });

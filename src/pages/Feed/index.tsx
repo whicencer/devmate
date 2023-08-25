@@ -3,8 +3,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "../../components/layout/Sidebar";
 import styles from "./styles.module.scss";
 import { MobileMenu } from "../../components/layout/Sidebar/MobileMenu/MobileMenu";
-import { ArticlesList } from "./components/ArticlesList/ArticlesList";
 import { WriteArticleForm } from "./components/WriteArticleForm/WriteArticleForm";
+import { ArticlesList } from "./components/Article/ArticlesList/ArticlesList";
 
 const Feed = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);

@@ -6,6 +6,7 @@ export const RegisterForm = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleSignup = () => {
     console.log('signup');
@@ -19,6 +20,14 @@ export const RegisterForm = () => {
         width='100%'
         value={name}
         onChange={(e) => setName(e.target.value)}
+      />
+      <Input
+        style={{marginTop: 15}}
+        label='E-mail'
+        placeholder='alexjackson23@gmail.com'
+        width='100%'
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <Input
         style={{marginTop: 15}}

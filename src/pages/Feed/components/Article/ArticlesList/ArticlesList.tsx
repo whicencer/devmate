@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { IArticle } from '../../../../app/typings/IArticle';
-import { FeedArticle } from '../FeedArticle/FeedArticle';
+import { IArticle } from '../../../../../app/typings/IArticle';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { articlesQuery, articlesState } from '../../../../atoms/articlesState';
+import { articlesQuery, articlesState } from '../../../../../atoms/articlesState';
+import { Article } from '../Article';
 
 export const ArticlesList = () => {
 	const articlesFromServer = useRecoilValue<IArticle[]>(articlesQuery);
@@ -17,7 +17,7 @@ export const ArticlesList = () => {
 			{
 				articles.map(article => {
 					return (
-						<FeedArticle key={article.id} article={article} />
+						<Article key={article.id} article={article} />
 					);
 				})
 			}

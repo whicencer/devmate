@@ -1,10 +1,14 @@
 import { IUser } from "./IAuthor";
 
 export interface IArticle {
-    id: string;
-    author:       IUser;
-    articleText:  string;
-    mediaContent?: string;
-    likes: number;
-    timestamp: Date;
+	id: number;
+	createdAt: Date;
+	updatedAt: Date;
+
+	content:  string;
+	media?: string;
+	likes: number;
+	
+	author: IUser;
+	userId: number;
 }

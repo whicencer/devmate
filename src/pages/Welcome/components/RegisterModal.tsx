@@ -11,7 +11,7 @@ export const RegisterModal = () => {
   }
 
   return (
-    <Modal width='450px' setIsOpen={setRegisterModalOpen} isOpen={registerModalOpen}>
+    <Modal width='500px' setIsOpen={setRegisterModalOpen} isOpen={registerModalOpen}>
       <h2>Get started</h2>
       <p>Create your account now</p>
       <RegisterForm />

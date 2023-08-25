@@ -11,7 +11,7 @@ export const LoginModal = () => {
   }
 
   return (
-    <Modal width='450px' setIsOpen={setLoginModalOpen} isOpen={loginModalOpen}>
+    <Modal width='500px' setIsOpen={setLoginModalOpen} isOpen={loginModalOpen}>
       <h2>Sign in</h2>
       <p>Login to your account</p>
       <LoginForm />

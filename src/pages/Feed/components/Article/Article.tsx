@@ -4,11 +4,11 @@ import { FaThumbsUp } from 'react-icons/fa';
 
 import styles from './styles.module.scss';
 import { IArticle } from '../../../../app/typings/IArticle';
-import { ArticleInfo } from './components/ArticleInfo/ArticleInfo';
-import { MediaContent } from './components/MediaContent/MediaContent';
+import { ArticleInfo } from './ArticleInfo/ArticleInfo';
+import { MediaContent } from '../MediaContent/MediaContent';
 
-export const FeedArticle = ({ article }: { article: IArticle }) => {
-  const { author, articleText, mediaContent, likes, timestamp } = article;
+export const Article = ({ article }: { article: IArticle }) => {
+  const { content, media, likes, author, createdAt } = article;
   
   const [isLiked, setLiked] = useState(false);
 
@@ -17,12 +17,12 @@ export const FeedArticle = ({ article }: { article: IArticle }) => {
   return (
     <div className={styles.article}>
         <div className={styles.articleHeader}>
-          <ArticleInfo author={author} timestamp={timestamp} />
+          <ArticleInfo author={author} createdAt={createdAt} />
           <BsThreeDots size={20} />
         </div>
         <div className={styles.articleContent}>
-          <p>{articleText}</p>
-          { mediaContent ? <MediaContent mediaContent={mediaContent} /> : null}
+          <p>{content}</p>
+          { media ? <MediaContent mediaContent={media} /> : null}
         </div>
         <div className={styles.interaction}>
           <span onClick={handleLike} style={{ color: isLiked ? '#5c57ff' : '' }}>
