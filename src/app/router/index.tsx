@@ -4,8 +4,6 @@ import ErrorPage from '../../pages/ErrorPage';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 export const router = (isLogged: boolean) => {
-  console.log(isLogged);
-
   return createBrowserRouter([
     {
       path: '/',
