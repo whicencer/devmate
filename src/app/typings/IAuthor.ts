@@ -1,7 +1,7 @@
 import { IArticle } from "./IArticle";
 import { TRoles } from "./TRoles";
 
-export interface IUser {
+export interface IAuthor {
 	id: number;
 	createdAt: Date;
 	updatedAt: Date;

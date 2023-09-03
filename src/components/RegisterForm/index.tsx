@@ -3,19 +3,29 @@ import { Button } from "../../shared/ui/Button";
 import { Input } from "../../shared/ui/Input";
 import { reducer } from "./reducers/reducer";
 import { IState } from "./typings";
+import { useAuth } from "../../app/hooks/useAuth";
+import { useRecoilState } from "recoil";
+import { userState } from "../../atoms/userState";
 
 export const RegisterForm = () => {
   const initialState: IState = {
-    email: '',
     fullname: '',
     password: '',
     username: ''
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setUser] = useRecoilState(userState);
+  const { authService } = useAuth();
 
   const handleSignup = () => {
-    console.log('signup ', state);
+    authService.signup(state)
+      .then(res => {
+        setUser(res.data);
+        localStorage.setItem('user', JSON.stringify(res.data));
+      })
+      .catch(err => console.log(err));
   };
   
   return (
@@ -26,22 +36,6 @@ export const RegisterForm = () => {
         width='100%'
         value={state.fullname}
         onChange={(e) => dispatch({ type: 'change_fullname', payload: e.target.value })}
-      />
-      <Input
-        style={{marginTop: 15}}
-        label='E-mail'
-        placeholder='alexjackson23@gmail.com'
-        width='100%'
-        value={state.email}
-        onChange={(e) => dispatch({ type: 'change_email', payload: e.target.value })}
-      />
-      <Input
-        style={{marginTop: 15}}
-        label='E-mail'
-        placeholder='alexjackson23@gmail.com'
-        width='100%'
-        value={state.email}
-        onChange={(e) => dispatch({ type: 'change_email', payload: e.target.value })}
       />
       <Input
         style={{marginTop: 15}}
