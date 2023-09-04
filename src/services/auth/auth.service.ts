@@ -6,7 +6,7 @@ export class AuthService {
 		return axios.post('/auth/signin', {password, username});
 	}
 
-	async signup({ email, fullname, password, username }: ISignup) {
-		return axios.post('/auth/signup', {email, fullname, password, username});
+	async signup({ fullname, password, username }: ISignup) {
+		return axios.post('/auth/signup', {fullname, password, username});
 	}
 }
