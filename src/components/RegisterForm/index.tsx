@@ -26,7 +26,7 @@ export const RegisterForm = () => {
         localStorage.setItem('user', JSON.stringify(res.data));
         window.location.reload();
       })
-      .catch(err => console.log(err));
+      .catch(err => alert(err.response.data.message));
   };
   
   return (
