@@ -1,10 +1,12 @@
 import { useReducer } from "react";
+import { useRecoilState } from "recoil";
+import { toast } from "react-toastify";
+
 import { Button } from "../../shared/ui/Button";
 import { Input } from "../../shared/ui/Input";
 import { reducer } from "./reducers/reducer";
 import { IState } from "./typings";
 import { useAuth } from "../../app/hooks/useAuth";
-import { useRecoilState } from "recoil";
 import { userState } from "../../atoms/userState";
 
 export const RegisterForm = () => {
@@ -24,9 +26,10 @@ export const RegisterForm = () => {
       .then(res => {
         setUser(res.data);
         localStorage.setItem('user', JSON.stringify(res.data));
-        window.location.reload();
+        toast.success('You have successfully logged in');
+        setTimeout(() => window.location.reload(), 1300);
       })
-      .catch(err => alert(err.response.data.message));
+      .catch(err => toast.error(err.response.data.message));
   };
   
   return (

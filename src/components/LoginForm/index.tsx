@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRecoilState } from "recoil";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../app/hooks/useAuth";
 import { Button } from "../../shared/ui/Button";
@@ -19,9 +20,10 @@ export const LoginForm = () => {
       .then(res => {
         setUser(res.data);
         localStorage.setItem('user', JSON.stringify(res.data));
-        window.location.reload();
+        toast.success('You have successfully logged in');
+        setTimeout(() => window.location.reload(), 1300);
       })
-      .catch(err => alert(err.response.data.message));
+      .catch(err => toast.error(err.response.data.message));
   };
 
   return (
