@@ -1,39 +1,36 @@
-import { useRecoilState } from 'recoil';
-import { Button } from '../../../../shared/ui/Button';
-import Textarea from '../../../../shared/ui/Textarea';
-import styles from '../../styles.module.scss';
-import { articlesState } from '../../../../atoms/articlesState';
-import { useState } from 'react';
-import { IArticle } from '../../../../app/typings/IArticle';
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { toast } from "react-toastify";
+
+import { Button } from "../../../../shared/ui/Button";
+import Textarea from "../../../../shared/ui/Textarea";
+import styles from "../../styles.module.scss";
+import { articlesState } from "../../../../atoms/articlesState";
+import { ArticleService } from "../../../../services/article/articles.service";
+import { userState } from "../../../../atoms/userState";
 
 export const WriteArticleForm = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [_, setArticles] = useRecoilState(articlesState);
-	const [articleText, setArticleText] = useState<string>('');
+	const [user] = useRecoilState(userState);
+	const [articleText, setArticleText] = useState<string>("");
+	const { createArticle } = new ArticleService();
 
-	const handleAddArticle = () => {
+	const handleAddArticle = async () => {
 		if (articleText.length < 1) {
-			alert('Too short story...');
+			toast.error("Too short story...");
 		} else {
-			const newArticle: IArticle = {
-				id: `${Math.random()*10}`,
-				articleText,
-				author: {
-					name: 'Deniel Azizov',
-					nickname: 'whicencer'
-				},
-				likes: 0,
-				timestamp: new Date(),
-			};
-	
+			const res = await createArticle({ content: articleText }, user.token)
+			const newArticle = res.data;
 			setArticles(articles => [newArticle, ...articles]);
-			setArticleText('');
+			setArticleText("");
 		}
 	};
 
   return (
     <div className={styles.feedInput}>
 			<Textarea
-				placeholder='Tell your mates something interesting...'
+				placeholder="Tell your mates something interesting..."
 				value={articleText}
 				onChange={(e) => setArticleText(e.target.value)}
 			/>
