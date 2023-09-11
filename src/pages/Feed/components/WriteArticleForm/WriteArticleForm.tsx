@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { useRecoilState } from "recoil";
 import { toast } from "react-toastify";
 
@@ -20,10 +21,18 @@ export const WriteArticleForm = () => {
 		if (articleText.length < 1) {
 			toast.error("Too short story...");
 		} else {
-			const res = await createArticle({ content: articleText }, user.token)
-			const newArticle = res.data;
-			setArticles(articles => [newArticle, ...articles]);
-			setArticleText("");
+			try {
+				const res = await createArticle({ content: articleText }, user.token)
+				const newArticle = res.data;
+				setArticles(articles => [newArticle, ...articles]);
+				setArticleText("");
+			} catch (error) {
+				if (axios.isAxiosError(error)) {
+					toast.error(error.response?.data.message);
+				} else {
+					toast.error("Some error occured");
+				}
+			}
 		}
 	};
 
