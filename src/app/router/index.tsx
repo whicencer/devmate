@@ -1,17 +1,19 @@
-import { createBrowserRouter } from 'react-router-dom';
 import { Welcome } from '../../pages/Welcome';
 import Feed from '../../pages/Feed';
 import ErrorPage from '../../pages/ErrorPage';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Welcome />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: '/feed',
-    element: <Feed />,
-    errorElement: <ErrorPage />,
-  }
-]);
+export const router = (isLogged: boolean) => {
+  return createBrowserRouter([
+    {
+      path: '/',
+      element: !isLogged ? <Welcome /> : <Navigate to='/feed' />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: '/feed',
+      element: isLogged ? <Feed /> : <Navigate to='/' />,
+      errorElement: <ErrorPage />,
+    }
+  ]);
+};

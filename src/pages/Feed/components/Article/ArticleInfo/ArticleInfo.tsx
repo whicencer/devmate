@@ -1,10 +1,10 @@
 import { BiSolidUserCircle } from 'react-icons/bi';
-import { IUser } from '../../../../../app/typings/IAuthor';
+import { IAuthor } from '../../../../../app/typings/IAuthor';
 import styles from '../styles.module.scss';
 import { getNormalDate } from '../../../../../helpers/getNormalDate';
 
 interface IProps {
-	author: IUser;
+	author: IAuthor;
 	createdAt: Date;
 }
 

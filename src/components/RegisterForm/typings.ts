@@ -1,4 +1,4 @@
-type ActionTypes = 'change_fullname' | 'change_email' | 'change_username' | 'change_password';
+type ActionTypes = 'change_fullname' | 'change_username' | 'change_password';
 
 export interface IAction {
 	type: ActionTypes,
@@ -8,7 +8,6 @@ export interface IAction {
 
 export interface IState {
 	fullname: string;
-	email: string;
 	username: string;
 	password: string;
 }
