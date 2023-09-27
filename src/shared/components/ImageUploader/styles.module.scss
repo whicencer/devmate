@@ -1,0 +1,27 @@
+label[htmlfor="upload"] {
+  background-color: indigo;
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.icon {
+  padding: 6px;
+  border-radius: 100%;
+  color: var(--color-border);
+
+  &:hover {
+    background-color: var(--hover-color);
+    color: #4f4f68;
+  }
+}
+
+.preview {
+	label {
+		font-size: 16px;
+		margin-top: 10px;
+	}
+}

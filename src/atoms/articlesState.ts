@@ -13,7 +13,7 @@ export const articlesQuery = selector({
   get: async ({ get }) => {
     const { token } = get(userState);
     
-    const response = await axios.get<IArticle[]>(`/articles`, {
+    const response = await axios.get(`/articles`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },

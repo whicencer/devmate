@@ -1,77 +1,77 @@
 .article {
-    margin-top: 10px;
-    background-color: var(--color-bg);
-    border-radius: 10px;
+	margin-top: 10px;
+	background-color: var(--color-bg);
+	border-radius: 10px;
 
-    padding: 20px;
+	padding: 20px;
 
-    svg {
-        cursor: pointer;
-    }
+	svg {
+		cursor: pointer;
+	}
 }
 
 .articleHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .articleAuthor {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 
-    h4 {
-        color: var(--color-text);
-        cursor: pointer;
-        font-size: 1.1rem;
-    }
+	h4 {
+		color: var(--color-text);
+		cursor: pointer;
+		font-size: 1.1rem;
+	}
 
-    img {
-        border-radius: 100px;
-        width: 50px;
-        height: 50px;
-    }
+	img {
+		border-radius: 100px;
+		width: 50px;
+		height: 50px;
+	}
 }
 
 .authorAdditionalInfo {
-    margin-left: 18px;
+	margin-left: 18px;
 
-    p {
-        color: var(--color-paragraph-darker);
-        font-size: 14px;
-        margin-top: 5px;
-    }
+	p {
+		color: var(--color-paragraph-darker);
+		font-size: 14px;
+		margin-top: 5px;
+	}
 }
 
 .articleContent {
-    margin-top: 20px;
+	margin-top: 20px;
+	font-size: 18px;
 
-    p {
-        margin-left: 7px;
-    }
-    img {
-        width: 70%;
-        border-radius: 12px;
-        margin-top: 18px;
-        cursor: pointer;
-    }
+	p {
+		margin-left: 7px;
+	}
+	img {
+		border-radius: 10px;
+		margin-top: 18px;
+		cursor: pointer;
+	}
 }
 
 .interaction {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
 
-    span {
-        display: flex;
-        align-items: center;
-        margin: 0 10px;
-        cursor: pointer;
+	span {
+		display: flex;
+		align-items: center;
+		margin: 0 10px;
+		cursor: pointer;
 
-        p {
-            margin-left: 10px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-    }
+		p {
+			margin-left: 10px;
+			font-weight: 600;
+			font-size: 14px;
+		}
+	}
 }
