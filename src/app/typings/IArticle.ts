@@ -1,4 +1,4 @@
-import { IUser } from "./IAuthor";
+import { IAuthor } from "./IAuthor";
 
 export interface IArticle {
 	id: number;
@@ -9,6 +9,6 @@ export interface IArticle {
 	media?: string;
 	likes: number;
 	
-	author: IUser;
+	author: IAuthor;
 	userId: number;
 }

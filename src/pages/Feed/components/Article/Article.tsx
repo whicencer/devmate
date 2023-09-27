@@ -5,7 +5,7 @@ import { FaThumbsUp } from 'react-icons/fa';
 import styles from './styles.module.scss';
 import { IArticle } from '../../../../app/typings/IArticle';
 import { ArticleInfo } from './ArticleInfo/ArticleInfo';
-import { MediaContent } from '../MediaContent/MediaContent';
+import { MediaContent } from '../../../../shared/ui/MediaContent/MediaContent';
 
 export const Article = ({ article }: { article: IArticle }) => {
   const { content, media, likes, author, createdAt } = article;

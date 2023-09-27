@@ -18,6 +18,7 @@ export const articlesQuery = selector({
         'Authorization': `Bearer ${token}`,
       },
     });
+
     return response.data;
   }
 });
