@@ -1,0 +1,15 @@
+.image {
+	width: 400px;
+}
+
+
+@media screen and (max-width: 1050px) {
+	.image {
+		width: 60%;
+	}
+}
+@media screen and (max-width: 845px) {
+	.image {
+		width: 100%;
+	}
+}

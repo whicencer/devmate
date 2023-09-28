@@ -26,7 +26,7 @@ export const ImageUploader = ({ image, setImage }: { image: File | null, setImag
 		<>
 			<input id="upload" hidden className={styles.fileInput} type="file" accept="image/*" onChange={handleSubmit} />
 			<label htmlFor="upload">
-				<BiImageAlt className={styles.icon} cursor="pointer" size={37} />
+				<BiImageAlt className={styles.icon} cursor="pointer" size={40} />
 			</label>
 			<div className={styles.preview}>
 				{ image ? <MediaContent mediaContent={imageUrl} size="175px" /> : null }

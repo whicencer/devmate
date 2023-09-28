@@ -1,5 +1,4 @@
 label[htmlfor="upload"] {
-  background-color: indigo;
   color: white;
   padding: 0.5rem;
   font-family: sans-serif;
@@ -9,13 +8,12 @@ label[htmlfor="upload"] {
 }
 
 .icon {
-  padding: 6px;
+  padding: 8px;
   border-radius: 100%;
-  color: var(--color-border);
+  color: var(--color-text);
 
   &:hover {
     background-color: var(--hover-color);
-    color: #4f4f68;
   }
 }
 
