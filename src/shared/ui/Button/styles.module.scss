@@ -7,4 +7,12 @@
   padding: 10px;
   min-width: 130px;
   cursor: pointer;
+
+  background-color: var(--color-global-primary);
+  color: var(--color-button-text);
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--color-global-primary-hover);
+  }
 }

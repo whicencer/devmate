@@ -3,8 +3,15 @@
   position: absolute;
   bottom: 17px;
   right: 20px;
+  border-radius: 100%;
+  padding: 15px;
+
+  transition: .3s;
+
+  background-color: var(--color-primary);
 
   &:hover {
     text-decoration: underline;
+    box-shadow: 0 0 20px 0 var(--color-border);
   }
 }
