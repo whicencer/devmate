@@ -1,32 +1,33 @@
-import {FC, MouseEvent} from "react";
+import {ReactNode} from "react";
 import {motion} from "framer-motion";
-import ReactDOM from "react-dom";
-import {IModalProps} from "../../typings/Modal";
-import styles from "./styles.module.scss";
+import styles from "./Modal.module.scss";
+import {Portal} from "../../../Portal/Portal.tsx";
+import {classNames} from "../../../../../helpers/classNames/classNames.ts";
 
-export const Modal: FC<IModalProps> = ({ children, isOpen, setIsOpen, height, width }) => {
-  const modalRoot = document.getElementById('modal-root')!;
+export interface IModalProps {
+  children: ReactNode;
+  isOpen: boolean;
+  onClose: () => void;
+  className?: string;
+}
 
-  if (!isOpen) return null;
+export const Modal = ({ children, isOpen, onClose, className = "" }: IModalProps) => {
+  const opened = isOpen ? styles.opened : "";
 
-  const handleClick = (e: MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      setIsOpen(false);
-    }
-  };
-
-  return ReactDOM.createPortal(
-    <div data-testid='overlay' className={styles.modalOverlay} onMouseDown={handleClick}>
-      <motion.div
-        style={{ height, width }}
-        initial={{scale: .8}}
-        animate={{scale: 1}}
-        className={`modal ${styles.modal}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {children}
-      </motion.div>
-    </div>,
-    modalRoot
-  );
+  return (
+    <Portal>
+      <div className={classNames(styles.Modal, [className, opened])}>
+        <div className={styles.overlay} onClick={onClose}>
+          <motion.div
+              initial={{scale: .8}}
+              animate={{scale: 1}}
+              className={styles.content}
+              onClick={(e) => e.stopPropagation()}
+          >
+            {children}
+          </motion.div>
+        </div>
+      </div>
+    </Portal>
+  )
 };
