@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import ChangeTheme from "../ChangeTheme";
-import { links } from "./constants/links.tsx";
+import {Links, links} from "./constants/links.tsx";
+import {useTranslation} from "react-i18next";
+import {typedTFunc} from "../../helpers/typedTFunc/typedTFunc.ts";
 
 export const SidebarContent = () => {
+  const {t} = useTranslation("home");
+
   return (
     <div className={styles.sidebarInner}>
       <div>
@@ -17,7 +21,7 @@ export const SidebarContent = () => {
               return (
                 <Link key={link.path} to={link.path}>
                   {link.icon}
-                  <h3>{link.label}</h3>
+                  <h3>{typedTFunc<Links>(link.label, t)}</h3>
                 </Link>
               );
             })

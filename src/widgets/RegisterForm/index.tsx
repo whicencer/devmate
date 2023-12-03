@@ -4,6 +4,7 @@ import { Button } from "../../shared/ui/Button";
 import { Input } from "../../shared/ui/Input";
 import { reducer } from "./reducers/reducer.tsx";
 import { IState } from "./typings.ts";
+import {useTranslation} from "react-i18next";
 
 export const RegisterForm = () => {
   const initialState: IState = {
@@ -12,12 +13,13 @@ export const RegisterForm = () => {
     username: ''
   };
 
+  const {t} = useTranslation();
   const [state, dispatch] = useReducer(reducer, initialState);
   
   return (
     <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center', marginTop: 30, flexDirection: 'column'}}>
       <Input
-        label='Full name'
+        label={t("Full name")}
         placeholder='Alex Jackson'
         width='100%'
         value={state.fullname}
@@ -25,7 +27,7 @@ export const RegisterForm = () => {
       />
       <Input
         style={{marginTop: 15}}
-        label='Username'
+        label={t("Username")}
         placeholder='@whicencer'
         width='100%'
         value={state.username}
@@ -33,15 +35,15 @@ export const RegisterForm = () => {
       />
       <Input
         style={{marginTop: 15}}
-        label='Password'
-        placeholder='At least 8 characters'
+        label={t("Password")}
+        placeholder={t("At least 8 characters")}
         width='100%'
         type='password'
         minLength={8}
         value={state.password}
         onChange={(e) => dispatch({ type: 'change_password', payload: e.target.value })}
       />
-      <Button style={{marginTop: 25, justifySelf: 'center'}}>Sign up</Button>
+      <Button style={{marginTop: 25, justifySelf: 'center'}}>{t("Sign up")}</Button>
     </div>
   );
 };

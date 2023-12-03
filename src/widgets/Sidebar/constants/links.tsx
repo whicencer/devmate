@@ -1,34 +1,34 @@
 import { ReactElement } from 'react';
 import { MdOutlineRssFeed } from 'react-icons/md';
-import { AiFillCode, AiFillQuestionCircle } from 'react-icons/ai';
+import { AiFillCode } from 'react-icons/ai';
 import { BiSolidBookAlt } from 'react-icons/bi';
 import styles from '../styles.module.scss';
 
+export enum Links {
+  FEED = "Feed",
+  LEARN = "Learn",
+  PRACTICE = "Practice"
+}
 interface ILink {
   path: string;
-  label: string;
+  label: Links;
   icon: ReactElement;
 }
 
 export const links: ILink[] = [
   {
     path: '/feed',
-    label: 'Feed',
+    label: Links.FEED,
     icon: <MdOutlineRssFeed size={30} className={styles.linkIcons} />
   },
   {
     path: '/learn',
-    label: 'Learn',
+    label: Links.LEARN,
     icon: <BiSolidBookAlt size={30} className={styles.linkIcons} />
   },
   {
     path: '/practice',
-    label: 'Practice',
+    label: Links.PRACTICE,
     icon: <AiFillCode size={30} className={styles.linkIcons} />
-  },
-  {
-    path: '/ask',
-    label: 'Ask a question',
-    icon: <AiFillQuestionCircle size={30} className={styles.linkIcons} />
-  },
+  }
 ];
