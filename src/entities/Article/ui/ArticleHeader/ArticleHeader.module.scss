@@ -1,0 +1,21 @@
+.ArticleHeader {
+  display: flex;
+}
+
+.articleAuthor {
+  display: flex;
+
+  img {
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .info {
+    margin-left: 20px;
+
+    span {
+      color: var(--color-paragraph-darker);
+      font-size: 14px;
+    }
+  }
+}

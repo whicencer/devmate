@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "../../../widgets/Sidebar";
 import styles from "./Feed.module.scss";
 import { MobileMenu } from "../../../widgets/Sidebar/MobileMenu/MobileMenu.tsx";
-import {Article} from "../../../entities/Article/ui/Article.tsx";
+import {Article} from "../../../entities/Article";
 
 const Feed = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
