@@ -1,5 +1,1 @@
-import Feed from "./ui/Feed";
-
-export {
-  Feed
-}
+export {FeedPageAsync} from "./ui/Feed.async.tsx";

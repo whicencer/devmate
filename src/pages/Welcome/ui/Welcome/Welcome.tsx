@@ -4,7 +4,7 @@ import { textAnimation } from "../../animations.ts";
 import { HeaderStart } from "../HeaderStart/HeaderStart";
 import {useTranslation} from "react-i18next";
 
-export const Welcome = () => {
+const Welcome = () => {
   const {t} = useTranslation("welcome");
 
   return (
@@ -24,3 +24,5 @@ export const Welcome = () => {
     </div>
   );
 };
+
+export default Welcome;

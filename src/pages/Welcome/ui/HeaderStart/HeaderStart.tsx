@@ -2,10 +2,9 @@ import {useState} from "react";
 import styles from "./HeaderStart.module.scss";
 import { Button } from "../../../../shared/ui/Button";
 import ChangeTheme from "../../../../widgets/ChangeTheme";
-import {Modal} from "../../../../shared/ui/Modals";
-import {LoginModal} from "../LoginModal/LoginModal";
-import {RegisterModal} from "../RegisterModal/RegisterModal.tsx";
 import {useTranslation} from "react-i18next";
+import {SignupModal} from "../../../../features/signUp";
+import {LoginModal} from "../../../../features/authByUsername";
 
 export const HeaderStart = () => {
   const {t} = useTranslation("welcome");
@@ -25,12 +24,8 @@ export const HeaderStart = () => {
           <Button style={{ marginRight: 25 }} onClick={() => setRegisterModal(true)}>{t("Get started")}</Button>
           <ChangeTheme />
         </div>
-        <Modal isOpen={registerModal} onClose={() => setRegisterModal(false)}>
-          <RegisterModal swapModals={swapModals} />
-        </Modal>
-        <Modal isOpen={loginModal} onClose={() => setLoginModal(false)}>
-          <LoginModal swapModals={swapModals} />
-        </Modal>
+        <SignupModal swapModals={swapModals} isOpen={registerModal} onClose={() => setRegisterModal(false)} />
+        <LoginModal swapModals={swapModals} isOpen={loginModal} onClose={() => setLoginModal(false)} />
       </div>
   );
 };
