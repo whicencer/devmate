@@ -1,20 +1,18 @@
 import {WelcomePageAsync} from '../../../pages/Welcome';
-import {ErrorPage} from '../../../pages/ErrorPage';
 import {FeedPageAsync} from "../../../pages/Feed";
-import { createBrowserRouter } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import React from "react";
+import {RequireAuth, PublicRoute} from "../../../widgets/Routes";
 
-export const router = () => {
-  return createBrowserRouter([
-    {
-      path: '/',
-      element: <WelcomePageAsync />,
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: '/feed',
-      element: <FeedPageAsync />,
-      errorElement: <ErrorPage />,
-    }
-  ]);
-};
+export const AppRouter = () => {
+  return (
+      <Routes>
+        <Route element={<PublicRoute />}>
+          <Route path="/" element={<WelcomePageAsync />} />
+        </Route>
+        <Route element={<RequireAuth />}>
+          <Route path="/feed" element={<FeedPageAsync/>} />
+        </Route>
+      </Routes>
+  );
+}
