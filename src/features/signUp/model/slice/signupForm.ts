@@ -1,6 +1,6 @@
-import {atom} from "recoil";
 import {SignupSchema} from "../types/signupSchema";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {signupByUsername} from "../services/signupByUsername/signupByUsername.ts";
 
 const initialState: SignupSchema = {
   username: "",
@@ -21,6 +21,19 @@ export const signupForm = createSlice({
     setPassword(state, action: PayloadAction<string>) {
       state.password = action.payload;
     }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(signupByUsername.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(signupByUsername.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(signupByUsername.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
   }
 });
 

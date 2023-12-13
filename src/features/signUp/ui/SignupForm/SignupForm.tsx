@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {getSignupForm} from "../../model/selectors/getSignupForm.ts";
 import {signupActions} from "../../model/slice/signupForm.ts";
+import {signupByUsername} from "../../model/services/signupByUsername/signupByUsername.ts";
 
 const SignupForm = () => {
   const {t} = useTranslation();
@@ -20,12 +21,17 @@ const SignupForm = () => {
     dispatch(signupActions.setPassword(value));
   };
 
+  const handleSignup = () => {
+    dispatch(signupByUsername({ username, fullname, password }));
+  };
+
   return (
       <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center', marginTop: 30, flexDirection: 'column'}}>
         <Input
             label={t("Full name")}
             placeholder='Alex Jackson'
             width='100%'
+            maxLength={22}
             value={fullname}
             onChange={(e) => changeName(e.target.value)}
         />
@@ -34,6 +40,7 @@ const SignupForm = () => {
             label={t("Username")}
             placeholder='@whicencer'
             width='100%'
+            maxLength={16}
             value={username}
             onChange={(e) => changeUsername(e.target.value )}
         />
@@ -47,7 +54,7 @@ const SignupForm = () => {
             value={password}
             onChange={(e) => changePassword(e.target.value)}
         />
-        <Button style={{marginTop: 25, justifySelf: 'center'}}>{t("Sign up")}</Button>
+        <Button style={{marginTop: 25, justifySelf: 'center'}} onClick={handleSignup}>{t("Sign up")}</Button>
       </div>
   );
 };
