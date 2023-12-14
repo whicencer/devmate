@@ -1,28 +1,28 @@
-import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import Sidebar from "../../../widgets/Sidebar";
+import {useEffect} from "react";
 import styles from "./Feed.module.scss";
-import { MobileMenu } from "../../../widgets/Sidebar/MobileMenu/MobileMenu.tsx";
-import {Article} from "../../../entities/Article";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllArticles} from "../../../entities/Article/model/services/getAllArticles/getAllArticles.ts";
+import {getArticles} from "../../../entities/Article/model/selectors/getArticles.ts";
+import { Article } from "../../../entities/Article";
 
 const Feed = () => {
-  const [isBurgerOpen, setBurgerOpen] = useState(false);
+  const articles = useSelector(getArticles);
+  const dispatch = useDispatch();
 
-  const openBurger = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation();
-    setBurgerOpen(true);
-  };
+  useEffect(() => {
+    dispatch(getAllArticles());
+  }, []);
   
   return (
     <div className={styles.feed}>
-      { !isBurgerOpen ? <Sidebar /> : null }
-      <MobileMenu data-testid='mobile-menu' isBurgerOpen={isBurgerOpen} setBurgerOpen={setBurgerOpen} />
-      <button data-testid='burger-button' onClick={openBurger} className={styles.burgerButton} style={{ outline: 'none', border: 'none', background: 'none' }}>
-        <GiHamburgerMenu style={{ cursor: 'pointer' }} size={30} className={styles.burgerButtonIcon} />
-      </button>
-      <div className={styles.feedContent}>
-        <Article />
-      </div>
+
+      {
+        articles.map(article => {
+          return (
+              <Article key={article.id} article={article} />
+          );
+        })
+      }
     </div>
   );
 };
