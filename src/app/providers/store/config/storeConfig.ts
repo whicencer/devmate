@@ -3,12 +3,14 @@ import {StateSchema} from "./stateSchema";
 import {userReducer} from "../../../../entities/User/model/slice/userSlice.ts";
 import {loginReducer} from "../../../../features/authByUsername/model/slice/loginSlice.ts";
 import {signupReducer} from "../../../../features/signUp/model/slice/signupForm.ts";
+import {articleReducer} from "../../../../entities/Article/model/slice/articleSlice.ts";
 
 export const store = configureStore<StateSchema>({
   reducer: {
     user: userReducer,
+    articles: articleReducer,
     loginForm: loginReducer,
-    signupForm: signupReducer
+    signupForm: signupReducer,
   }
 })
 

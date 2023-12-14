@@ -3,11 +3,18 @@ import styles from "./Article.module.scss";
 import {ArticleHeader} from "../ArticleHeader/ArticleHeader.tsx";
 import {ArticleInteraction} from "../ArticleInteraction/ArticleInteraction.tsx";
 import {MediaContent} from "../../../../shared/ui/MediaContent/MediaContent.tsx";
+import {Article} from "../../model/types/articleSchema.ts";
 
 interface ArticleProps {
-    className?: string;
+  className?: string;
+  article: Article;
 }
-export const Article = ({ className = "" }: ArticleProps) => {
+export const Article = (props: ArticleProps) => {
+  const {
+    className = "",
+    article
+  } = props;
+
   return (
     <div className={classNames(styles.Article, [className])}>
       {/*Header*/}
@@ -15,17 +22,18 @@ export const Article = ({ className = "" }: ArticleProps) => {
 
       {/*Content*/}
       <div className={styles.content}>
-        <p>
-          Почему программисты так плохо готовят еду?<br/>
-          Потому что они всегда ждут, что микроволновка сделает за них все "по умолчанию"!
-        </p>
-        <div style={{ marginTop: 10 }}>
-          <MediaContent mediaContent={"https://statusneo.com/wp-content/uploads/2023/02/MicrosoftTeams-image551ad57e01403f080a9df51975ac40b6efba82553c323a742b42b1c71c1e45f1.jpg"} />
-        </div>
+        <p>{article.content}</p>
+        {
+          article.media
+            ? <div style={{ marginTop: 10 }}>
+                <MediaContent mediaContent={article.media} />
+              </div>
+            : null
+        }
       </div>
 
       {/*Interaction*/}
-      <ArticleInteraction />
+      <ArticleInteraction likes={article.likes} />
     </div>
   );
 };

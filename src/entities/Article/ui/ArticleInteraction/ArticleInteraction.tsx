@@ -4,7 +4,11 @@ import {BiSolidDislike, BiSolidLike} from "react-icons/bi";
 import {useState} from "react";
 import {useTranslation} from "react-i18next";
 
-export const ArticleInteraction = () => {
+interface ArticleInteractionProps {
+  likes: number;
+}
+
+export const ArticleInteraction = ({ likes }: ArticleInteractionProps) => {
   const {t} = useTranslation();
 
   const [likeActive, setLikeActive] = useState(false);
@@ -24,7 +28,7 @@ export const ArticleInteraction = () => {
         {/*Like Button*/}
         <div className={classNames(styles.button, [likeActive ? styles.active : ""])} onClick={like}>
           <BiSolidLike size={18} fill={likeActive ? "var(--color-global-primary)" : "var(--color-text)"} />
-          <span>154{t("k")}</span>
+          <span>{likes}</span>
         </div>
 
         {/*Dislike Button*/}
