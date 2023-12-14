@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { classNames } from "../../helpers/classNames/classNames";
 import styles from "./UserMenu.module.scss";
 import {getUserAuthData} from "../../entities/User/model/selectors/getUserAuthData/getUserAuthData.ts";
-import {MenuListItem, PopupMenu} from "../../shared/ui/PopupMenu/PopupMenu.tsx";
+import {MenuItemTheme, MenuListItem, PopupMenu} from "../../shared/ui/PopupMenu/PopupMenu.tsx";
 import {userActions} from "../../entities/User/model/slice/userSlice.ts";
 import {useTranslation} from "react-i18next";
 import { FaUser } from "react-icons/fa";
@@ -18,7 +18,7 @@ export const UserMenu = ({ className = "" }: UserMenuProps) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const menuList: MenuListItem[] = [
-    { text: t("Log out"), onClick: () => dispatch(userActions.logout()), color: "red" }
+    { text: t("Log out"), onClick: () => dispatch(userActions.logout()), theme: MenuItemTheme.DANGER }
   ];
 
   return (

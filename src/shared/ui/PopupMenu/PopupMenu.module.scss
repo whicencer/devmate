@@ -16,15 +16,23 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
-    color: #fff;
     font-size: 16px;
     margin-top: 5px;
 
     &:first-child {
       margin: 0;
     }
-    &:hover {
-      background-color: var(--hover-color);
-    }
+  }
+}
+.danger {
+  color: red;
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.04);
+  }
+}
+.primary {
+  color: #fff;
+  &:hover {
+    background-color: var(--hover-color);
   }
 }
