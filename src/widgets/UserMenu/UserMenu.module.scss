@@ -21,7 +21,7 @@
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    background: linear-gradient(30deg, rgb(62, 62, 204) 6%, rgb(0, 187, 255) 97%);
+    background: var(--color-border);
   }
 
   .user {
