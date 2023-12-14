@@ -3,6 +3,7 @@ import axios from "../../../../../app/configs/axios";
 import {User} from "../../../../../entities/User";
 import {userActions} from "../../../../../entities/User/model/slice/userSlice.ts";
 import {USER_LOCAL_STORAGE_KEY} from "../../../../../shared/const/localStorage.ts";
+import {toast} from "react-toastify";
 
 export interface LoginByUsernameProps {
   username: string;
@@ -28,9 +29,11 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
 
         localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
         thunkAPI.dispatch(userActions.setAuthData(response.data));
+        toast.success("Logged in");
 
         return response.data;
       } catch (error) {
+        toast.error("Invalid password or username");
         return thunkAPI.rejectWithValue("error");
       }
     }

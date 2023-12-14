@@ -17,8 +17,10 @@ export const UserMenu = ({ className = "" }: UserMenuProps) => {
   const {t} = useTranslation();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  const logout = () => dispatch(userActions.logout());
+
   const menuList: MenuListItem[] = [
-    { text: t("Log out"), onClick: () => dispatch(userActions.logout()), theme: MenuItemTheme.DANGER }
+    { text: t("Log out"), onClick: logout, theme: MenuItemTheme.DANGER }
   ];
 
   return (
