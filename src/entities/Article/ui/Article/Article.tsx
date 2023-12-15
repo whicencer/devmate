@@ -18,7 +18,7 @@ export const Article = (props: ArticleProps) => {
   return (
     <div className={classNames(styles.Article, [className])}>
       {/*Header*/}
-      <ArticleHeader />
+      <ArticleHeader author={article.author} postCreatedAt={article.createdAt} />
 
       {/*Content*/}
       <div className={styles.content}>

@@ -6,7 +6,7 @@ import {getUserAuthData} from "../../entities/User/model/selectors/getUserAuthDa
 import {MenuItemTheme, MenuListItem, PopupMenu} from "../../shared/ui/PopupMenu/PopupMenu.tsx";
 import {userActions} from "../../entities/User/model/slice/userSlice.ts";
 import {useTranslation} from "react-i18next";
-import { FaUser } from "react-icons/fa";
+import {ProfilePicture} from "../../shared/ui/ProfilePicture/ProfilePicture.tsx";
 
 interface UserMenuProps {
     className?: string;
@@ -31,9 +31,9 @@ export const UserMenu = ({ className = "" }: UserMenuProps) => {
         setMenuOpen(true);
       }}>
         {
-          authData?.profilePicture
-            ? <img src="https://i.pinimg.com/474x/32/3b/c2/323bc2e28f35a760b8d7afe48f3ffe48.jpg" alt="user_pic"/>
-            : <div className={styles.profilePic}><FaUser size={25} /></div>
+          authData.profilePicture
+            ? <img src={authData.profilePicture} alt="user_pic"/>
+            : <ProfilePicture size={25} />
         }
         <div className={styles.user}>
           <h3>@{authData?.username}</h3>
