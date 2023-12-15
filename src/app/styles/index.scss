@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+.contentWrapper {
+  margin-left: var(--sidebar-width);
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);

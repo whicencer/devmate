@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getAllArticles} from "../../../entities/Article/model/services/getAllArticles/getAllArticles.ts";
 import {getArticles} from "../../../entities/Article/model/selectors/getArticles.ts";
 import { Article } from "../../../entities/Article";
+import {PageWrapper} from "../../../widgets/PageWrapper/PageWrapper.tsx";
 
 const Feed = () => {
   const articles = useSelector(getArticles);
@@ -14,16 +15,17 @@ const Feed = () => {
   }, []);
   
   return (
-    <div className={styles.feed}>
-
-      {
-        articles.map(article => {
-          return (
+    <PageWrapper>
+      <div className={styles.feed}>
+        {
+          articles.map(article => {
+            return (
               <Article key={article.id} article={article} />
-          );
-        })
-      }
-    </div>
+            );
+          })
+        }
+      </div>
+    </PageWrapper>
   );
 };
 

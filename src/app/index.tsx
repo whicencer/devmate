@@ -5,7 +5,6 @@ import {LanguageSwitcher} from "../widgets/LanguageSwitcher/LanguageSwitcher.tsx
 import {Suspense, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {userActions} from "../entities/User/model/slice/userSlice.ts";
-import Sidebar from "../widgets/Sidebar";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,10 +16,7 @@ const App = () => {
   return (
       <>
         <Suspense fallback={<div>Loading...</div>}>
-          <Sidebar />
-          <div style={{ marginLeft: "22%" }}>
-            <AppRouter />
-          </div>
+          <AppRouter />
           <LanguageSwitcher />
         </Suspense>
       </>
