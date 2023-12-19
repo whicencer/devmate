@@ -10,7 +10,14 @@ export interface LoginByUsernameProps {
   password: string;
 }
 
-const checkData = (responseData) => {
+export interface LoginByUsernameResponse {
+  accessToken: string;
+  fullname: string;
+  profilePicture: string;
+  username: string;
+}
+
+const checkData = (responseData: LoginByUsernameResponse) => {
   if (!responseData) {
     throw new Error();
   }
