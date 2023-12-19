@@ -5,7 +5,7 @@ export interface Author {
   profilePicture: string;
   role:           string;
 }
-export interface Article {
+export interface IArticle {
   id:        number;
   createdAt: Date;
   updatedAt: Date;
@@ -17,7 +17,7 @@ export interface Article {
 }
 
 export interface ArticleSchema {
-  articlesList: Article[];
+  articlesList: IArticle[];
   isLoading?: boolean;
   error?: string;
 }

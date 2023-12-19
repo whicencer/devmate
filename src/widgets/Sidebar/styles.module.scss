@@ -73,53 +73,6 @@
   }
 }
 
-.closeBtn {
-  width: 60px;
-  height: 60px;
-  border: none;
-  border-radius: 100%;
-  padding: 12px;
-  background: none;
-  color: var(--color-text);
-  box-shadow: 0 0 10px 0 #00000034;
-  cursor: pointer;
-  transition: .4s;
-
-  &:hover {
-    color: var(--color-primary);
-    background-color: var(--hover-color);
-  }
-}
-
-.mobileMenu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-
-  width: 320px;
-  height: 100%;
-
-  padding: 20px;
-
-  background-color: var(--color-bg);
-  box-shadow: 0 0 10px 0 #000;
-
-  transition: .35s;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.openMenu {}
-.closedMenu {
-  visibility: hidden;
-  opacity: 0;
-  translate: -300px;
-}
-
 @media screen and (max-width: 1040px) {
   .sidebar {
     display: none;
