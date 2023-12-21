@@ -28,10 +28,10 @@ export const UserMenu = ({ className = "" }: UserMenuProps) => {
       <PopupMenu menuList={menuList} isOpen={isMenuOpen} onClose={() => setMenuOpen(false)} />
       <div className={classNames(styles.UserMenu, [className])} onClick={(e) => {
         e.stopPropagation();
-        setMenuOpen(true);
+        setMenuOpen(prev => !prev);
       }}>
         {
-          authData.profilePicture
+          authData?.profilePicture
             ? <img src={authData.profilePicture} alt="user_pic"/>
             : <ProfilePicture size={25} />
         }

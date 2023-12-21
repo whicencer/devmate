@@ -1,6 +1,7 @@
 import { classNames } from "../../../helpers/classNames/classNames";
 import styles from "./PopupMenu.module.scss";
 import {useAwayClick} from "../../hooks/useAwayClick.ts";
+import { useRef } from "react";
 
 export enum MenuItemTheme {
   PRIMARY = "primary",
@@ -17,15 +18,17 @@ interface PopupMenuProps {
   onClose: () => void;
   menuList: MenuListItem[]
 }
-export const PopupMenu = ({ className, isOpen, onClose, menuList }: PopupMenuProps) => {
-  const ref = useAwayClick(onClose);
+export const PopupMenu = ({ className = "", isOpen, onClose, menuList }: PopupMenuProps) => {
+  const wrapperRef = useRef(null);
+
+  useAwayClick(wrapperRef, onClose);
 
   if (!isOpen) {
     return null;
   }
 
   return (
-    <div ref={ref} className={classNames(styles.PopupMenu, [className])}>
+    <div ref={wrapperRef} className={classNames(styles.PopupMenu, [className])}>
       {
         menuList.map(menuItem => {
           return (

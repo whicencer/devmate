@@ -1,21 +1,17 @@
-import {useEffect, useRef} from "react";
+import {RefObject, useEffect} from "react";
 
-export const useAwayClick = (callback) => {
-  const ref = useRef();
-
+export const useAwayClick = (ref: RefObject<HTMLElement>, onClick: () => void) => {
   useEffect(() => {
-    const handleClick = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        callback();
+    const handleClickAway = (event: Event) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        onClick();
       }
     };
 
-    document.addEventListener('click', handleClick);
+    document.addEventListener('mousedown', handleClickAway);
 
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener('mousedown', handleClickAway);
     };
-  }, [ref]);
-
-  return ref;
+  }, [ref, onClick])
 };
