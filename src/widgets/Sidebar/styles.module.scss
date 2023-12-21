@@ -14,6 +14,10 @@
   justify-content: space-between;
 }
 
+.mobileSidebar {
+  display: none;
+}
+
 .nav {
   margin-top: 30px;
   display: flex;
@@ -76,5 +80,8 @@
 @media screen and (max-width: 1040px) {
   .sidebar {
     display: none;
+  }
+  .mobileSidebar {
+    display: inherit;
   }
 }

@@ -17,8 +17,8 @@ export const LanguageSwitcher = ({className = ""}: LanguageSwitcherProps) => {
   };
 
   return (
-      <h4 onClick={translateHandler} className={classNames(styles.LanguageSwitcher, [className])}>
+      <button onClick={translateHandler} className={classNames(styles.LanguageSwitcher, [className])}>
         {t("LANGUAGE")}
-      </h4>
+      </button>
   );
 };

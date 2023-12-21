@@ -9,7 +9,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.mobileSidebar}>
         <MobileMenu isBurgerOpen={isBurgerOpen} onBurgerClose={() => setBurgerOpen(false)} />
         <BurgerButton openBurger={() => setBurgerOpen(true)} style={{ margin: 10 }} />
       </div>

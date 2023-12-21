@@ -5,14 +5,15 @@ import {getAllArticles} from "../../../entities/Article/model/services/getAllArt
 import {getArticles} from "../../../entities/Article/model/selectors/getArticles.ts";
 import { Article } from "../../../entities/Article";
 import {PageWrapper} from "../../../widgets/PageWrapper/PageWrapper.tsx";
+import { AppDispatch } from "../../../app/providers/store/config/storeConfig.ts";
 
 const Feed = () => {
   const articles = useSelector(getArticles);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(getAllArticles());
-  }, []);
+  }, [dispatch]);
   
   return (
     <PageWrapper>

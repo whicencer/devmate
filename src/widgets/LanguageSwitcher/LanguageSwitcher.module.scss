@@ -6,6 +6,11 @@
   border-radius: 100%;
   padding: 15px;
 
+  border: none;
+  outline: none;
+  font-weight: 600;
+  color: var(--color-text);
+
   transition: .3s;
 
   background-color: var(--color-primary);
@@ -13,5 +18,8 @@
   &:hover {
     text-decoration: underline;
     box-shadow: 0 0 20px 0 var(--color-border);
+  }
+  &:active {
+    transform: scale(0.9);
   }
 }

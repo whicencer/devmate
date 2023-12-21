@@ -1,0 +1,11 @@
+.ChangeTheme {
+	outline: none;
+	border: none;
+	background: none;
+	color: var(--color-text);
+	transition: .25s;
+
+	&:active {
+		transform: scale(0.9);
+	}
+}

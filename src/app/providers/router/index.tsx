@@ -1,7 +1,6 @@
 import {WelcomePageAsync} from '../../../pages/Welcome';
 import {FeedPageAsync} from "../../../pages/Feed";
 import {Route, Routes} from "react-router-dom";
-import React from "react";
 import {RequireAuth, PublicRoute} from "../../../widgets/Routes";
 import {NotFound} from "../../../pages/NotFound";
 
