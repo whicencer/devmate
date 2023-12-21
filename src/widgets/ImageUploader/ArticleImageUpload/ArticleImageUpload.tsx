@@ -1,9 +1,9 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { BiImageAlt } from "react-icons/bi";
 import styles from "./styles.module.scss";
-import { MediaContent } from "../../shared/ui/MediaContent/MediaContent.tsx";
+import { MediaContent } from "../../../shared/ui/MediaContent/MediaContent.tsx";
 
-export const ImageUploader = ({ image, setImage }: { image: File | null, setImage: Dispatch<SetStateAction<File | null>> }) => {
+export const ArticleImageUploader = ({ image, setImage }: { image: File | null, setImage: Dispatch<SetStateAction<File | null>> }) => {
 	const [imageUrl, setImageUrl] = useState<string>('');
 	const fileReader = new FileReader();
 

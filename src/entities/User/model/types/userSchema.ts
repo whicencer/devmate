@@ -2,7 +2,7 @@ export interface User {
   id: number;
   username: string;
   fullname: string;
-  profilePicture: string;
+  profilePicture?: string;
 }
 
 export interface UserSchema {

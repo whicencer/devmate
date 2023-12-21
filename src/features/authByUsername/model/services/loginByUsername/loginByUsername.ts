@@ -31,7 +31,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
           username: authData.username,
           password: authData.password
         })
-
+        
         checkData(response.data);
 
         localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));

@@ -3,6 +3,16 @@
   padding: 10px;
   outline: none;
   font-size: 16px;
+
+  &::-webkit-file-upload-button {
+    cursor: pointer;
+    background: var(--color-primary);
+    color: var(--color-text);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 7px;
+  }
 }
 
 .label {

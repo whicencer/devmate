@@ -8,22 +8,31 @@ export interface SignupByUsernameProps {
   username: string;
   password: string;
   fullname: string;
+  profilePicture?: string;
 }
 
-const checkData = (responseData) => {
+export interface SignupByUsernameResponse {
+  accessToken: string;
+  fullname: string;
+  profilePicture: string;
+  username: string;
+}
+
+const checkData = (responseData: SignupByUsernameResponse) => {
   if (!responseData) {
     throw new Error();
   }
 };
 
 export const signupByUsername = createAsyncThunk<User, SignupByUsernameProps>(
-    "login/loginByUsername",
+    "signup/signupByUsername",
     async (authData, thunkAPI) => {
       try {
         const response = await axios.post("http://localhost:3000/auth/signup", {
           username: authData.username,
           password: authData.password,
-          fullname: authData.fullname
+          fullname: authData.fullname,
+          profilePicture: authData.profilePicture
         });
 
         checkData(response.data);
