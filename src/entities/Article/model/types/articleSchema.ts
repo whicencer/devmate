@@ -11,9 +11,15 @@ export interface IArticle {
   updatedAt: Date;
   content:   string;
   media:     string;
-  likes:     number;
+  likes:     ILike[];
   userId:    number;
   author:    Author;
+}
+
+export interface ILike {
+  id:        number;
+  userId:    number;
+  articleId: number;
 }
 
 export interface ArticleSchema {

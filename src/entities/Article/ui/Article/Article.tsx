@@ -34,7 +34,7 @@ export const Article = (props: ArticleProps) => {
       </div>
 
       {/*Interaction*/}
-      <ArticleInteraction likes={article.likes} />
+      <ArticleInteraction likes={article.likes} articleId={article.id} />
     </div>
   );
 };
